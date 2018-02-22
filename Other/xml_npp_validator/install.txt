@@ -1,0 +1,32 @@
+XMLTools 2.4.x installation
+---------------------------
+
+1. stop notepad++
+2. replace XMLTools.dll in npp plugins subfolder
+3. only if version 2.3.x or earlier is already installed, then remove
+   following files from npp main folder:
+    - iconv.dll
+    - libxml2.dll
+    - libxslt.dll
+    - zlib.dll
+4. copy new external dll either into npp main folder (same folder than
+   "notepad++.exe") or in %appdata%\Notepad++ folder:
+     - libcurl.dll
+     - libiconv-2.dll
+     - libwinpthread1-dll
+     - libxml2-2.dll
+     - libxslt-1.dll
+     - zlib1.dll
+
+After installation in npp main folder, you should have following structure:
+
+  [NPP_ROOT_FOLDER]
+   ¦   notepad++.exe
+   |   libcurl.dll
+   ¦   libiconv-2.dll
+   ¦   libwinpthread-1.dll
+   ¦   libxml2-2.dll
+   ¦   libxslt-1.dll
+   ¦   zlib1.dll
+    +---[plugins]
+           XMLTools.dll

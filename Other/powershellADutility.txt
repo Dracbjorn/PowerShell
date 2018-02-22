@@ -1,0 +1,35 @@
+New-ADUser -SamAccountName nnn2 -Name "nnn2" -UserPrincipalName nnn2@jj -AccountPassword (ConvertTo-SecureString -AsPlainText "somePassword" -Force) -Enabled $true -PasswordNeverExpires $true -Path 'CN=Users,DC=jjdomain,DC=net'
+
+
+[powershell]$objOU=[ADSI]“LDAP://DC=something,DC=com”;
+$dataSource=import-csv “list.csv”;
+foreach($dataRecord in $datasource) {
+$cn=$dataRecord.FirstName + ” ” + $dataRecord.LastName
+$sAMAccountName=$dataRecord.FirstName + “.” + $dataRecord.LastName
+$givenName=$dataRecord.FirstName
+$sn=$dataRecord.LastName
+$sAMAccountName=$sAMAccountName.ToLower()
+$displayName=$sn + “, ” + $givenName
+$userPrincipalName=$sAMAccountName + “@something.com”;
+#Additional Attributes
+$objUser=$objOU.Create(“user”,”CN=”+$cn)
+$objUser.Put(“sAMAccountName”,$sAMAccountName)
+$objUser.Put(“userPrincipalName”,$userPrincipalName)
+$objUser.Put(“displayName”,$displayName)
+$objUser.Put(“givenName”,$givenName)
+$objUser.Put(“sn”,$sn)
+#Place the additional attributes into the record
+$objUser.SetInfo()
+$objUser.SetPassword(“password”) ;
+$objUser.psbase.InvokeSet(“AccountDisabled”,$false)
+$objUser.SetInfo()
+}[/powershell]
+
+—–
+
+Code for the additional fields:
+
+[powershell]#Additional Attributes
+$physicalDeliveryOfficeName=$dataRecord.Office
+#Place the additional attributes into the record
+$objUser.Put(“physicalDeliveryOfficeName”,$physicalDeliveryOfficeName)[/powershell]

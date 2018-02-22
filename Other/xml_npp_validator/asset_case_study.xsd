@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="questionText">
+    <xs:restriction base="xs:string">
+       <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="questionInfo">
+    <xs:annotation>
+      <xs:documentation>
+        text: the question text. feedback: the default question
+        feedback displayed to students. note: a question note
+        displayed to instructors. learningObjective: 0 or more
+        learning objectives for the question.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="tags" type="tags" minOccurs="0" maxOccurs="1" />
+      <xs:element name="qtype" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="richText" type="questionText" minOccurs="1" maxOccurs="1" />
+      <xs:element name="feedback" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="note" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="learningObjectives" type="learningObjectives" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="answers" type="answers" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="hints" type="hints" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="gradeResource" type="gradeResource" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="artifact" type="artifact" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="grading" type="grading" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="weight" type="xs:int"></xs:attribute>
+    <xs:attribute name="random" type="xs:boolean"></xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="answers">
+    <xs:sequence>
+      <xs:element name="answer" type="answer" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="hints">
+    <xs:sequence>
+      <xs:element name="hint" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="gradeResource">
+    <xs:sequence>
+      <xs:element name="host_hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="file_hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="source" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="destination" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="artifact" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="artifact">
+    <xs:sequence>
+      <xs:element name="aid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="filename" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="scraper" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="grading">
+    <xs:sequence>
+      <xs:element name="minOf" type="minOf" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="maxOf" type="maxOf" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="eval" type="eval" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="minOf">
+    <xs:sequence>
+      <xs:element name="touchstone" type="touchstone" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="maxOf">
+    <xs:sequence>
+      <xs:element name="touchstone" type="touchstone" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="eval">
+    <xs:sequence>
+      <xs:element name="touchstone" type="touchstone" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="touchstone">
+    <xs:sequence>
+      <xs:element name="evaluation" type="evaluation" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="and" type="and" />
+        <xs:element name="or" type="or" />
+        <xs:element name="not" type="not" />
+        <xs:element name="commandTemplate" type="commandTemplate" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="evaluation">
+    <xs:sequence>
+      <xs:element name="true" type="true" minOccurs="0" maxOccurs="1" />
+      <xs:element name="false" type="false" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="true">
+    <xs:sequence>
+      <xs:element name="points" type="xs:int" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="feedback" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="successString" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="false">
+    <xs:sequence>
+      <xs:element name="points" type="xs:int" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="feedback" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="successString" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="and">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="and" type="and" />
+        <xs:element name="or" type="or" />
+        <xs:element name="not" type="not" />
+        <xs:element name="commandTemplate" type="commandTemplate" />
+      </xs:choice>
+      <xs:element name="and" type="and" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="or" type="or" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="not" type="not" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="commandTemplate" type="commandTemplate" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="or">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="and" type="and" />
+        <xs:element name="or" type="or" />
+        <xs:element name="not" type="not" />
+        <xs:element name="commandTemplate" type="commandTemplate" />
+      </xs:choice>
+      <xs:element name="and" type="and" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="or" type="or" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="not" type="not" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="commandTemplate" type="commandTemplate" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="not">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="and" type="and" />
+        <xs:element name="or" type="or" />
+        <xs:element name="not" type="not" />
+        <xs:element name="commandTemplate" type="commandTemplate" />
+      </xs:choice>
+      <xs:element name="and" type="and" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="or" type="or" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="not" type="not" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="commandTemplate" type="commandTemplate" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="commandTemplate">
+    <xs:sequence>
+      <xs:element name="aid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="keyValue" type="keyValue" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="keyValue">
+    <xs:sequence>
+      <xs:element name="key" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="learningObjectives">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="caseStudy" type="caseStudy"></xs:element>
+
+  <xs:complexType name="caseStudy" mixed="false">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="tags" type="tags" minOccurs="0" maxOccurs="1" />
+      <xs:element name="richText" type="questionText" minOccurs="0"></xs:element>
+      <xs:element name="learningObjectives" type="learningObjectives" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="imageResource" type="imageResource" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="fileResource" type="fileResource" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="host" type="host" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="question" type="questionInfo" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="host">
+    <xs:sequence>
+      <xs:element name="configItem" type="configItem"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="configItem">
+    <xs:sequence>
+      <xs:element name="hid" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="displayButton" type="xs:boolean" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="restartButton" type="xs:boolean" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="runScript" type="runScript" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="fileResource" type="fileResource" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="runScript">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="source" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="destination" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="fileResource">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="source" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="destination" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="answer">
+    <xs:sequence>
+      <xs:element name="correct" type="xs:string"></xs:element>
+      <xs:element name="points" type="xs:int"></xs:element>
+      <xs:element name="value" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="imageResource">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="source" type="xs:string"></xs:element>
+      <xs:element name="caption" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tags">
+    <xs:sequence>
+      <xs:element name="tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<caseStudy
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="Y:\CDT_Resources\unix_xml_schemas\asset_case_study.xsd">
+	  <hid>CQC00?_E0?0_M0?0_S0?0_I0?0_ModExam_X0?0_C00?</hid>
+	  <name>Case Study - <!-- Description --></name>
+	  <tags>
+		<tag>
+		  <!-- Insert Imports here --></tag>
+	  </tags>
+	  <richText>
+		<!-- Instructions and details for the exam --><![CDATA[]]></richText>
+	  <learningObjectives>
+		<!-- learning objectives (Not really used) -->
+	  </learningObjectives>
+	  <host>
+		<!-- Details related to any vms associated with the exam -->
+		<configItem>
+		  <hid>CQC001_<!-- vm name --></hid>
+		  <displayButton>false</displayButton>
+		  <restartButton>false</restartButton>
+		  <fileResource>
+			<hid>
+			  <!-- File Resource -->
+			</hid>
+			<title>
+			  <!-- File Resource -->
+			</title>
+			<description/>
+			<source>
+			  <!-- File Resource -->
+			</source>
+			<destination>
+			  <!-- Location of File Resource -->
+			</destination>
+		  </fileResource>
+		</configItem>
+	  </host>
+	  <question weight="3" random="true">
+		<hid>CQC00?_E0?0_M0?0_S0?0_I0?0_ModExam_X0?0_C00?_Q0?0</hid>
+		<name>CQC00?_E0?0_M0?0_S0?0_I0?0_ModExam_X0?0_C00?_Q0?0</name>
+		<tags>
+		  <tag>import</tag>
+		</tags>
+		<qtype>multipleChoice</qtype>
+		<richText>
+		  <!-- Question Text --><![CDATA[]]></richText>
+		<feedback>
+		  <!-- Slides this question covered in --><![CDATA[]]></feedback>
+		<note>
+		  <!-- Notes for the facilitator --><![CDATA[]]></note>
+		<learningObjectives>
+		  <!-- BLUEPRINT LEARNING OBJECTIVE: (N) TITLE_NAME  -->
+		</learningObjectives>
+		<answers>
+		  <answer>
+			<correct>
+			  <!-- true or false  -->
+			</correct>
+			<points>100</points>
+			<value>
+			  <!-- Answer Text  --><![CDATA[]]></value>
+		  </answer>
+		</answers>
+		<hints>
+		  <!-- No hints in mod exams -->
+		</hints>
+	  </question>
+	</caseStudy>

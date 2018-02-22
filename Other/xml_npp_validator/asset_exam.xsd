@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="exam" type="examInfo"></xs:element>
+
+  <xs:complexType name="examInfo">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="tags" type="tags" minOccurs="0" maxOccurs="1" />
+      
+      <xs:element name="examElements" type="examElements" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="gradable" type="xs:boolean"></xs:attribute>
+    <xs:attribute name="highStakes" type="xs:boolean"></xs:attribute>
+    <xs:attribute name="numberOfAttempts" type="xs:int"></xs:attribute>
+    <xs:attribute name="passingGrade" type="xs:int"></xs:attribute>
+    <xs:attribute name="exercise_duration" type="xs:int"></xs:attribute>
+    <xs:attribute name="show_answers_on_complete" type="xs:boolean"></xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="examElements">
+    <xs:sequence>
+      <xs:element name="examElement" type="examElement" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="examElement">
+    <xs:annotation>
+      <xs:documentation>
+        An exam element with 1 or more case study child elements
+        will randomly pick 1 case study for use in the exam.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="caseStudy" type="caseStudy" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      <xs:element name="questionPool" type="questionPool" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="weight" type="xs:int"></xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="caseStudy">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The hid refers to a pre-exisiting case study identifier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="questionPool">
+    <xs:sequence>
+      <xs:element name="hid" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The hid refers to a pre-exisiting case study identifier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="learningObjectives">
+    <xs:sequence>
+    	<xs:element name="hid" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tags">
+    <xs:sequence>
+      <xs:element name="tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

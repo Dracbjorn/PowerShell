@@ -1,0 +1,187 @@
+﻿PS C:\Users\Kent\Google Drive\Scripts\Powershell> .\CreateFiles.ps1 Exercise2
+Exercise2 does not exist
+Would you like to create it?[y/n]: y
+
+
+    Directory: C:\Users\Kent\Google Drive\Scripts\Powershell
+
+
+Mode                LastWriteTime         Length Name                          
+----                -------------         ------ ----                          
+d-----         2/1/2017  12:22 AM                Exercise2                     
+Directory was created: Exercise2
+
+
+    Directory: C:\Users\Kent\Google Drive\Scripts\Powershell\Exercise2
+
+
+Mode                LastWriteTime         Length Name                          
+----                -------------         ------ ----                          
+-a----         2/1/2017  12:22 AM              0 file1                         
+Created file: Exercise2/file1
+Wrote to file: Exercise2/file1
+-a----         2/1/2017  12:22 AM              0 file2                         
+Created file: Exercise2/file2
+Wrote to file: Exercise2/file2
+-a----         2/1/2017  12:22 AM              0 file3                         
+Created file: Exercise2/file3
+Wrote to file: Exercise2/file3
+-a----         2/1/2017  12:22 AM              0 file4                         
+Created file: Exercise2/file4
+Wrote to file: Exercise2/file4
+-a----         2/1/2017  12:22 AM              0 file5                         
+Created file: Exercise2/file5
+Wrote to file: Exercise2/file5
+-a----         2/1/2017  12:22 AM              0 file6                         
+Created file: Exercise2/file6
+Wrote to file: Exercise2/file6
+-a----         2/1/2017  12:22 AM              0 file7                         
+Created file: Exercise2/file7
+Wrote to file: Exercise2/file7
+-a----         2/1/2017  12:22 AM              0 file8                         
+Created file: Exercise2/file8
+Wrote to file: Exercise2/file8
+-a----         2/1/2017  12:22 AM              0 file9                         
+Created file: Exercise2/file9
+Wrote to file: Exercise2/file9
+-a----         2/1/2017  12:22 AM              0 file10                        
+Created file: Exercise2/file10
+Wrote to file: Exercise2/file10
+-a----         2/1/2017  12:22 AM              0 file11                        
+Created file: Exercise2/file11
+Wrote to file: Exercise2/file11
+-a----         2/1/2017  12:22 AM              0 file12                        
+Created file: Exercise2/file12
+Wrote to file: Exercise2/file12
+-a----         2/1/2017  12:22 AM              0 file13                        
+Created file: Exercise2/file13
+Wrote to file: Exercise2/file13
+-a----         2/1/2017  12:22 AM              0 file14                        
+Created file: Exercise2/file14
+Wrote to file: Exercise2/file14
+-a----         2/1/2017  12:22 AM              0 file15                        
+Created file: Exercise2/file15
+Wrote to file: Exercise2/file15
+-a----         2/1/2017  12:22 AM              0 file16                        
+Created file: Exercise2/file16
+Wrote to file: Exercise2/file16
+-a----         2/1/2017  12:22 AM              0 file17                        
+Created file: Exercise2/file17
+Wrote to file: Exercise2/file17
+-a----         2/1/2017  12:22 AM              0 file18                        
+Created file: Exercise2/file18
+Wrote to file: Exercise2/file18
+-a----         2/1/2017  12:22 AM              0 file19                        
+Created file: Exercise2/file19
+Wrote to file: Exercise2/file19
+-a----         2/1/2017  12:22 AM              0 file20                        
+Created file: Exercise2/file20
+Wrote to file: Exercise2/file20
+Listing contents of Exercise2:
+
+file1
+file10
+file11
+file12
+file13
+file14
+file15
+file16
+file17
+file18
+file19
+file2
+file20
+file3
+file4
+file5
+file6
+file7
+file8
+file9
+file1: This is an Exercise
+file10: This is an Exercise
+file11: This is an Exercise
+file12: This is an Exercise
+file13: This is an Exercise
+file14: This is an Exercise
+file15: This is an Exercise
+file16: This is an Exercise
+file17: This is an Exercise
+file18: This is an Exercise
+file19: This is an Exercise
+file2: This is an Exercise
+file20: This is an Exercise
+file3: This is an Exercise
+file4: This is an Exercise
+file5: This is an Exercise
+file6: This is an Exercise
+file7: This is an Exercise
+file8: This is an Exercise
+file9: This is an Exercise
+
+
+
+PS C:\Users\Kent\Google Drive\Scripts\Powershell> .\CreateFiles.ps1 Exercise2
+Exercise2/file1 already exists
+Exercise2/file2 already exists
+Exercise2/file3 already exists
+Exercise2/file4 already exists
+Exercise2/file5 already exists
+Exercise2/file6 already exists
+Exercise2/file7 already exists
+Exercise2/file8 already exists
+Exercise2/file9 already exists
+Exercise2/file10 already exists
+Exercise2/file11 already exists
+Exercise2/file12 already exists
+Exercise2/file13 already exists
+Exercise2/file14 already exists
+Exercise2/file15 already exists
+Exercise2/file16 already exists
+Exercise2/file17 already exists
+Exercise2/file18 already exists
+Exercise2/file19 already exists
+Exercise2/file20 already exists
+Listing contents of Exercise2:
+
+file1
+file10
+file11
+file12
+file13
+file14
+file15
+file16
+file17
+file18
+file19
+file2
+file20
+file3
+file4
+file5
+file6
+file7
+file8
+file9
+file1: This is an Exercise
+file10: This is an Exercise
+file11: This is an Exercise
+file12: This is an Exercise
+file13: This is an Exercise
+file14: This is an Exercise
+file15: This is an Exercise
+file16: This is an Exercise
+file17: This is an Exercise
+file18: This is an Exercise
+file19: This is an Exercise
+file2: This is an Exercise
+file20: This is an Exercise
+file3: This is an Exercise
+file4: This is an Exercise
+file5: This is an Exercise
+file6: This is an Exercise
+file7: This is an Exercise
+file8: This is an Exercise
+file9: This is an Exercise
