@@ -1,0 +1,1 @@
+function Global:prompt {"PS [$Env:username]$PWD`n>"}
